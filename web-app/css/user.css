@@ -1,0 +1,82 @@
+.lhn { 
+	position: fixed;
+	margin: 0; 
+	padding: 0; 
+}
+
+.profile { 
+	margin: 3%; 
+}
+
+.profile .thumbnail { 
+	width: 52px; 
+	float: left; 
+}
+
+.profile .thumbnail img { 
+	display: block; 
+}
+
+.profile .details { 
+	margin-left: 67px; 
+}
+
+.profile .details h4 { 
+	height: 24px; 
+	padding-top: 2px; 
+	font-size: 16px; 
+	overflow: hidden; 
+	margin-bottom: 5px; 
+	white-space: nowrap; 
+	text-overflow: ellipsis; 
+}
+
+.profile .btn-group { 
+	padding: 0; 
+}
+
+.profile .btn.action { 
+	min-width: 100px; 
+}
+
+.lhn .form-search { 
+	padding: 0; 
+	margin: 0; 
+}
+
+.lhn .divider {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+	height: 1px;
+}
+		
+.search { 
+	padding: 0; 
+}
+
+.search .input-append {
+	margin-bottom: 0 !important;
+}
+
+.search .input-append > div { 
+	float: left; 
+}
+
+.search .input-append .add-on {
+	padding: 4px 0 !important;
+	border-radius: 0 14px 14px 0;
+	width: 100%;
+	margin: auto;
+}
+
+.search .input-append input {
+	float: left;
+	width: 96%;
+	padding-left: 4%;
+	border-radius: 14px 0 0 14px;
+}
+
+.nav-header > a { 
+	color: #999 !important; 
+}		

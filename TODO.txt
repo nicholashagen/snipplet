@@ -1,0 +1,82 @@
+Snip
+
+- create snippet, link
+- create Fork through Github
+	
+	
+FAVORITE
+- click star, then spin, enlarge, delarge, and highlight
+- insert favorite(user, gist, date, comment)
+
+SHARE
+
+
+0.7 RELEASE
+- form validation and form cleanup
+- drop cookie to maintain indefinite login
+- change login/login to just login in custom map
+- fork, favorite, etc features
+- user profile page
+- lookup user snippets, not gists
+- user dashboard page of gists and categories
+- only store last 500 gists and mark registered user gists as 'locked'
+- use /<context>/u/<username>/<action> to go to UserController:<action>
+- on discover gists, force discovery to allow it to lock and create snipplet if necessary
+- fix github service not saving html_url for user account details
+- on discovery gists, ensure we loop through each page as necessary based on count
+- login error message from invald response code
+- fix reduce gist code
+- on cancel login dialog, kill all connections/updates
+- disable click to close modal
+- select revision/file not working anymore
+- add fork icon to main icon list in bootstrap
+
+
+0.8 RELEASE
+- followers
+- setup search (disable in 0.4 though)
+	- use prefix dropdown for language [ Search |v ___________ ]
+
+
+0.9 RELEASE
+- tags
+
+
+1.0 RELEASE
+- ie6/7 warning
+- javascript warning
+- handle multi-module files to pick best language (ie: html/css/javascript = html)
+- add errors page to allow click to re-invoke or ignore
+- user preference of timezone
+- auto refresh / loading of new content
+- save file/history contents for fast retrieval after loaded once
+- setup nodejs to perform prettyprint at server time
+- metric-based gists
+	- followers, preferred languages, forks, activity, recency, likes, etc
+- re-columnize gists view on resize of page
+- remove older gists on infinite scroll to avoid too much memory loss
+	- or store to local storage for easy add
+	- add ability on scroll up to re-add
+- do infinite scroll in web worker to help avoid lag delay?
+- add transition on width resizes via CSS transition
+- send email when rate limit below threshold 
+- Remove API link
+	- Why do some API links not work? Do ppl delete gists that I need to recover from?
+- fix typeahead to allow dropdown and down arrow to show all
+
+FUTURE
+- support private gists and retrieve gists on synchronization after login via user token
+	- save token, etc to account
+- utf8 not working with certain gists
+- black bar for selection of files and revisions
+	- consider icon in selection menu for code type
+- ajaxify the comments, history, etc (may not be needed)
+- diff view for file contents
+
+- set max_allowed_packet to 1024 * 1024 * 128 (128M)
+	- http://cesaric.com/?p=604
+
+- /gist/[xyz] in API has fork_of field (https://api.github.com/gists/1758988)
+	- bi-directionally reference fork details on both sides in domain object (many-2-one)
+	- mark as forked (ribbon on left side of bar and include 'forks' and 'forked from' in forks section)
+	

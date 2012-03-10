@@ -1,0 +1,4 @@
+Snipplet is an online web application for interacting with Gists via the
+GitHub API in order to category, tag, and better manage Gists.  It also
+allows a social aspect of following other users and public Gists and
+being able to quickly snip or fork another Gist.

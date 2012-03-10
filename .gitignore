@@ -1,0 +1,33 @@
+# Eclipse
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+
+# Grails
+*.iws
+*Db.properties
+*Db.script
+.settings
+eclipse
+stacktrace.log
+target
+target-eclipse
+/plugins
+/web-app/plugins
+/web-app/WEB-INF/classes
+
+# snipplet files
+github.properties
