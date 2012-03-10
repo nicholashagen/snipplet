@@ -7,8 +7,10 @@ import groovyx.net.http.*
 
 class GithubService {
 
-	String clientId = null; // LOCAL_CLIENT_ID;
-	String clientSecret = null; // LOCAL_CLIENT_SECRET;
+	def grailsApplication
+	
+	private String clientId
+	private String clientSecret
 	
 	GithubUser lookupUser(def json) {
 
@@ -29,4 +31,23 @@ class GithubService {
 		
 		return gitUser;
 	}
+	
+	private String getClientId() {
+		if (!clientId) {
+			clientId = grailsApplication.config.com?.znet?.snipplet?.github?.clientId
+			if (!clientId) {
+				throw new IllegalStateException('missing com.znet.snipplet.github.clientId property in grails-app/conf/GithubConfig.groovy')
+			}
+		}
+	}
+	
+	private String getClientSecret() {
+		if (!clientSecret) {
+			clientSecret = grailsApplication.config.com?.znet?.snipplet?.github?.clientSecret
+			if (!clientSecret) {
+				throw new IllegalStateException('missing com.znet.snipplet.github.clientSecret property in grails-app/conf/GithubConfig.groovy')
+			}
+		}
+	}
+
 }
