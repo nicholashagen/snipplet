@@ -2,3 +2,16 @@ Snipplet is an online web application for interacting with Gists via the
 GitHub API in order to category, tag, and better manage Gists.  It also
 allows a social aspect of following other users and public Gists and
 being able to quickly snip or fork another Gist.
+
+Gists are becoming more and more widely used as a place to store snippets
+of code.  However, the management of those snippets is increasingly difficult
+to deal with.  Snipplet hopes to take Gists to the next level by providing
+a new web interface to add categories and tags that make searching, locating,
+and re-using Gists easier.  Think of Pinterest for developers.  By using
+Snipplet, you can take snippets or templates of commonly used code and
+apply them to categories such as Design Patterns, Java Code, Grails code,
+Python Code, Enterprise Features, Messaging Features, etc.  The categories
+are custom to you to better manage your snipplets!
+
+This code is very pre-alpha and not ready for consumption.  If you are interested
+in helping bring this code to final fruition and launch, let me know.
