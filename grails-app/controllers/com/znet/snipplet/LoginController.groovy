@@ -16,7 +16,6 @@ class LoginController {
 	GithubService githubService;
 	
 	static int TIMEOUT = 1000 * 60 * 5;
-	static String JUNK = "<!-- this frame uses comet style techniques with JSONP to load individual messages -->"
 	
     def index() { 
 		[ "clientId" : githubService.clientId ];
@@ -25,13 +24,6 @@ class LoginController {
 	def logout() {
 		session.invalidate()
 		redirect(controller:'snipplet', action:'list');
-	}
-	
-	def info() {
-		String url = 'https://api.github.com/users/nicholashagen/gists';
-		discoverGists(url);
-		
-		[ user : session.user ]
 	}
 	
 	def status(int status) {

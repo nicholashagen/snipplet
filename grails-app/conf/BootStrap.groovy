@@ -78,7 +78,7 @@ class BootStrap {
 
 		// trigger initial load
 		// GistLoaderJob.triggerNow()
-		// GistUpdaterJob.triggerNow();
+		GistUpdaterJob.triggerNow();
     }
 	
     def destroy = {

@@ -17,21 +17,22 @@ class GistService {
 	LanguageService languageService;
 	ExecutorService executorService;
 	
+	static int MAX_GISTS = 500
 	static int GIST_PAGES = 10000; // TODO: dynamically calculate from Link header
 	static int GISTS_PER_PAGE = 100;
 	static String API_URL = "https://api.github.com/gists/public";
 	
 	synchronized int reduceGists() {
 		def gcount = Gist.count();
-		if (gcount <= 500) { return 0; }
+		if (gcount <= MAX_GISTS) { return 0; }
 		
-		def gists = Gist.findAllByLocked(false, [sort:"dateUpdated", order:"desc", offset:500, max:1]);
+		def gists = Gist.findAllByLocked(false, [sort:"dateUpdated", order:"desc", offset:MAX_GISTS, max:1]);
 		if (gists) {
 			int count = 0;
 			def gistId = gists[0].id;
 			
 			count += GistComment.executeUpdate("delete GistComment c where c.gist.id in (select id from Gist where id <= ${gistId} and locked is false)");
-			count += GistFile.executeUpdate("delete GistFile f where f.history.id in (select id from GistHistory where gist.id <= ${gistId} and locked is false");
+			count += GistFile.executeUpdate("delete GistFile f where f.history.id in (select id from GistHistory where gist.id <= ${gistId} and gist.locked is false)");
 			count += GistHistory.executeUpdate("delete GistHistory h where h.gist.id in (select id from Gist where id <= ${gistId} and locked is false)");
 			count += GistComment.executeUpdate("delete GistFork f where f.gist.id in (select id from Gist where id <= ${gistId} and locked is false)");
 			count += Gist.executeUpdate("delete Gist g where g.id <= ${gistId} and locked is false");
