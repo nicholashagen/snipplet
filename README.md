@@ -123,6 +123,22 @@ per language in order to drive the navigation based on popularity of languages.
 
 The UserService handles updating and creating the user in the database on login/logout as well as user tasks such as creating snippets.
 
+## Jobs
+
+Jobs are Quartz jobs stored in `grails-app/jobs` and are responsible for periodically performing tasks.
+
+### GistLoaderJob
+
+The GistLoaderJob is currently disabled (see `grails-app/conf/Bootstrap.groovy`). It was responsible for loading all Gists
+and converting into the internal database.  However, due to space constraints on the database, we no longer store all Gists
+and only store the most recent.
+
+### GistUpdaterJob
+
+The GistUpdaterJob is kicked off via `grails-app/conf/Bootstrap.groovy` on startup and then runs every 10 minutes to 
+retrieve the latest gists.  It also updates the language stats to drive the navigation.  It also reduces the Gists to
+protect the size of the database.
+
 ## Page Flow
 
 The main page is <http://localhost:8080/snipplet/snipplets> via `grails-app/views/snipplet/list`.  The URL is mapped in `UrlMappings.groovy` that also
